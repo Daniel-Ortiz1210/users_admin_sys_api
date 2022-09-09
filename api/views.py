@@ -9,17 +9,17 @@ from .models import User
 import datetime
 from django.shortcuts import get_object_or_404
 
+'''
+Para entender la permisología de los usuarios, recomiendo analizar las classes isAdminOrReadOnly y BasicPermissions
+
+Los usuarios de tipo "is_superuser" pueden: crear, actualizar, consultar y eliminar usuarios.
+Los usuarios de tipo "is_staff" pueden actualizar y consultar datos de usuarios.
+Usuarios que no tengan ninguna de estás dos propiedades, solo pueden consultar información.
+
+'''
+
 
 class UsersView(APIView):
-    '''
-    Para entender la permisología de los usuarios, recomiendo analizar las classes isAdminOrReadOnly y BasicPermissions
-
-    Los usuarios de tipo "is_superuser" pueden: crear, actualizar, consultar y eliminar usuarios.
-    Los usuarios de tipo "is_staff" pueden actualizar y consultar datos de usuarios.
-    Usuarios que no tengan ninguna de estás dos propiedades, solo pueden consultar información.
-
-    '''
-
     permission_classes = [isAdminOrReadOnly]
 
     def post(self, request):
