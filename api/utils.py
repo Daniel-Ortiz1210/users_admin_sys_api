@@ -43,6 +43,6 @@ def validate_telephone(telephone):
 def validate_date(date):
     try:
         obj = datetime.datetime.strptime(date, "%d-%m-%Y").date()
-        return True
     except:
         return False
+    return True

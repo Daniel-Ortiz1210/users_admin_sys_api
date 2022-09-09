@@ -10,12 +10,15 @@ import datetime
 from django.shortcuts import get_object_or_404
 
 '''
-Para entender la permisología de los usuarios, recomiendo analizar las classes isAdminOrReadOnly y BasicPermissions
+Para entender la permisología de los usuarios, recomiendo analizar las clases isAdminOrReadOnly y BasicPermissions
 
 Los usuarios de tipo "is_superuser" pueden: crear, actualizar, consultar y eliminar usuarios.
 Los usuarios de tipo "is_staff" pueden actualizar y consultar datos de usuarios.
 Usuarios que no tengan ninguna de estás dos propiedades, solo pueden consultar información.
 
+Siempre al crear o modificar un usuario, vamos a validar campos como cp, curp, rfc, telefono y fecha con las funciones que encontraremos en el archivo utils.
+
+La autenticación es a través de JWT, se puede observar en el archivo settings.py y en api/urls.py 
 '''
 
 
