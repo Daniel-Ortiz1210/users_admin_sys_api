@@ -27,9 +27,9 @@ class UsersView(APIView):
 
     def post(self, request):
 
-        validation = DataValidationSuite(request.data).execute_validation()
+        validations = DataValidationSuite(request.data).execute_validation()
 
-        for validation_case in validation:
+        for validation_case in validations:
             if type(validation_case) == Response:
                 return validation_case
 
@@ -60,9 +60,9 @@ class UserDetailView(APIView):
     def put(self, request, id):
         user = get_object_or_404(User, id=id)
             
-        validation = DataValidationSuite(request.data).execute_validation()
+        validations = DataValidationSuite(request.data).execute_validation()
 
-        for validation_case in validation:
+        for validation_case in validations:
             if type(validation_case) == Response:
                 return validation_case
         
@@ -77,9 +77,9 @@ class UserDetailView(APIView):
     def patch(self, request, id):
         user = get_object_or_404(User, id=id)
 
-        validation = DataValidationSuite(request.data).execute_validation()
+        validations = DataValidationSuite(request.data).execute_validation()
 
-        for validation_case in validation:
+        for validation_case in validations:
             if type(validation_case) == Response:
                 return validation_case
 
